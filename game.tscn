@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://elst0xn32iil"]
+
+[ext_resource type="PackedScene" uid="uid://ckavqb25bdaul" path="res://world.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://dfjg4dwprtude" path="res://tilemap_packed.png" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://cc87uk11hpo25" path="res://coin.gd" id="2_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://d3i708q4rnf6s" path="res://Coins/coin_01.png" id="3_iotsf"]
+[ext_resource type="Texture2D" uid="uid://caknyxo5dqoh1" path="res://Coins/coin_02.png" id="4_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://blfat6fe7147b" path="res://Coins/coin_03.png" id="5_215e1"]
+[ext_resource type="Texture2D" uid="uid://c1dqadii6mby2" path="res://Coins/coin_04.png" id="6_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://bbvmx5p4mft05" path="res://Coins/coin_05.png" id="7_80cx4"]
+[ext_resource type="Texture2D" uid="uid://c1bpm37kql3sc" path="res://Coins/coin_06.png" id="8_e8heu"]
+[ext_resource type="Texture2D" uid="uid://dr6m4t8sagsmt" path="res://Coins/coin_07.png" id="9_rvswv"]
+[ext_resource type="Texture2D" uid="uid://corqkv771h1cv" path="res://Coins/coin_08.png" id="10_boyg6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibjym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iotsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lc2xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_215e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7sc4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_80cx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e8heu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rvswv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_boyg6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abi3o"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(59.5, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
+atlas = ExtResource("2_e2o6t")
+region = Rect2(24, 24, 8, 7)
+
+[node name="World" unique_id=1113526972 instance=ExtResource("1_80nbo")]
+
+[node name="AnimatedSprite2D" parent="Coin" parent_id_path=PackedInt32Array(1769758777) index="0" unique_id=2083720209]
+frame_progress = 0.0
+
+[node name="Coin2" type="Area2D" parent="." index="3" unique_id=476792179]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin2" index="0" unique_id=1788419359]
+position = Vector2(859.5, 547)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2" index="1" unique_id=794914390]
+position = Vector2(858.5, 548)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Label" parent="." index="4" unique_id=1877430384]
+offset_left = 871.0
+offset_top = 423.0
+offset_right = 911.0
+offset_bottom = 463.0
+
+[node name="Obstacle" type="StaticBody2D" parent="." index="6" unique_id=302420829]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" index="0" unique_id=2047667084]
+position = Vector2(625, 563)
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle" index="1" unique_id=1217307040]
+position = Vector2(630, 567.875)
+scale = Vector2(8.187504, 11.964291)
+texture = SubResource("AtlasTexture_wvhbo")
+
+[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
