@@ -1,19 +1,21 @@
 extends Node2D
 
 var score: int = 0
-const TOTAL_COINS = 5
+const TOTAL_COINS: int = 20
 
-# Тука дефинираме променлива со точно исто име што го користиме долу
-@onready var label: Label = $Label
+@onready var label: Label = $CanvasLayer/Label
 
 func _ready() -> void:
-	if label:
-		label.text = "Score: " + str(score) + " / " + str(TOTAL_COINS)
+	_update_score()
 
 func add_point() -> void:
-	score += 1
-	if label:
-		label.text = "Score: " + str(score) + " / " + str(TOTAL_COINS)
-	
 	if score >= TOTAL_COINS:
-		print("Победа! Ги собравте сите парички!")
+		return
+	score += 1
+	_update_score()
+	if score == TOTAL_COINS:
+		print("You collected all 20 coins!")
+
+func _update_score() -> void:
+	if is_instance_valid(label):
+		label.text = "Coins: %d / %d" % [score, TOTAL_COINS]

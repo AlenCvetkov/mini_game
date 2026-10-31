@@ -11,14 +11,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "PLayer":
-		print("Паричката е собрана!")
-		
-		# Го наоѓаме Label-от на екранот и му ги зголемуваме поените
-		var score_label = get_node("/root/World/CanvasLayer/Label")
-		if score_label:
-			# Ги земаме тековните поени од текстот, ги претвораме во број и додаваме +1
-			var current_score = score_label.text.to_int()
-			current_score += score_value
-			score_label.text = str(current_score)
-			
+		get_tree().current_scene.call("add_point")
 		queue_free() # Ја брише паричката откако ќе ја собере

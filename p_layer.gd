@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Брзина на движење и јачина на скок
 const SPEED = 600.0
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -420.0
 
 func _physics_process(delta: float) -> void:
 	# 1. Гравитација: ако ликот не е на земја, додавај му забрзување надолу

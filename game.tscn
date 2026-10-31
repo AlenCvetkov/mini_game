@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://elst0xn32iil"]
+[gd_scene format=4 uid="uid://elst0xn32iil"]
 
 [ext_resource type="PackedScene" uid="uid://ckavqb25bdaul" path="res://world.tscn" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://dfjg4dwprtude" path="res://tilemap_packed.png" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://d1aketf1qkncq" path="res://backgroundEmpty.png" id="2_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://didj7xncrt7u" path="res://Coins/block_metal.png" id="2_iotsf"]
 [ext_resource type="Script" uid="uid://cc87uk11hpo25" path="res://coin.gd" id="2_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://d3i708q4rnf6s" path="res://Coins/coin_01.png" id="3_iotsf"]
 [ext_resource type="Texture2D" uid="uid://caknyxo5dqoh1" path="res://Coins/coin_02.png" id="4_lc2xo"]
@@ -11,6 +12,63 @@
 [ext_resource type="Texture2D" uid="uid://c1bpm37kql3sc" path="res://Coins/coin_06.png" id="8_e8heu"]
 [ext_resource type="Texture2D" uid="uid://dr6m4t8sagsmt" path="res://Coins/coin_07.png" id="9_rvswv"]
 [ext_resource type="Texture2D" uid="uid://corqkv771h1cv" path="res://Coins/coin_08.png" id="10_boyg6"]
+[ext_resource type="Texture2D" uid="uid://cksxwhcoy6vss" path="res://blocks/archway_small.png" id="12_iotsf"]
+[ext_resource type="Texture2D" uid="uid://dpe4y2hsnnoor" path="res://Coins/column_middle.png" id="13_215e1"]
+[ext_resource type="Texture2D" uid="uid://dem6fwgrur6w5" path="res://Coins/column_bottom.png" id="14_7sc4i"]
+[ext_resource type="Texture2D" path="res://blocks/cactus.png" id="obstacle_asset_1"]
+[ext_resource type="Texture2D" path="res://blocks/pottery_tall.png" id="obstacle_asset_2"]
+[ext_resource type="Texture2D" path="res://blocks/cannon_small.png" id="obstacle_asset_3"]
+[ext_resource type="Texture2D" path="res://blocks/obelisk.png" id="obstacle_asset_4"]
+[ext_resource type="Texture2D" path="res://blocks/fence.png" id="obstacle_asset_5"]
+[ext_resource type="Texture2D" path="res://blocks/block_glass.png" id="obstacle_asset_6"]
+[ext_resource type="Texture2D" path="res://blocks/block_metal.png" id="obstacle_asset_7"]
+[ext_resource type="Texture2D" path="res://blocks/doorway_closed.png" id="obstacle_asset_8"]
+[ext_resource type="Texture2D" path="res://blocks/cannon_large.png" id="obstacle_asset_9"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sc4i"]
+size = Vector2(8000, 60.25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfdv2"]
+texture = ExtResource("2_iotsf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_mfdv2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_mfdv2")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7sc4i"]
+load_path = "res://.godot/imported/block_metal.png-b66cfac855d443c7f4f8f8132422f16f.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ibjym"]
 animations = [{
@@ -48,43 +106,435 @@ animations = [{
 radius = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
-size = Vector2(59.5, 73)
+size = Vector2(59.5, 56.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
-atlas = ExtResource("2_e2o6t")
-region = Rect2(24, 24, 8, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifow5"]
+size = Vector2(51, 114.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_new_obstacle"]
+size = Vector2(46, 48)
 
 [node name="World" unique_id=1113526972 instance=ExtResource("1_80nbo")]
 
+[node name="BackgroundEmpty" type="Sprite2D" parent="." index="0" unique_id=525313944]
+z_index = -10
+position = Vector2(800, 450)
+scale = Vector2(1.5625, 0.87890625)
+texture = ExtResource("2_7sc4i")
+
+[node name="BackgroundEmpty2" type="Sprite2D" parent="." index="1" unique_id=1793193788]
+z_index = -10
+position = Vector2(2400, 450)
+scale = Vector2(1.5625, 0.87890625)
+texture = ExtResource("2_7sc4i")
+
+[node name="BackgroundEmpty3" type="Sprite2D" parent="." index="2" unique_id=896388524]
+z_index = -10
+position = Vector2(4000, 450)
+scale = Vector2(1.5625, 0.87890625)
+texture = ExtResource("2_7sc4i")
+
+[node name="BackgroundEmpty4" type="Sprite2D" parent="." index="3" unique_id=1855619097]
+z_index = -10
+position = Vector2(5600, 450)
+scale = Vector2(1.5625, 0.87890625)
+texture = ExtResource("2_7sc4i")
+
+[node name="BackgroundEmpty5" type="Sprite2D" parent="." index="4" unique_id=337926864]
+z_index = -10
+position = Vector2(7200, 450)
+scale = Vector2(1.5625, 0.87890625)
+texture = ExtResource("2_7sc4i")
+
+[node name="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(979033938) index="0" unique_id=1686829027]
+position = Vector2(4000, 635)
+shape = SubResource("RectangleShape2D_7sc4i")
+debug_color = Color(5.2943824e-06, 0.58152944, 0.79725826, 0.41960785)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" parent_id_path=PackedInt32Array(979033938) index="1" unique_id=104573984]
+tile_map_data = PackedByteArray("AAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAD//wkAAAAAAAAAAAD+/woAAAAAAAAAAAADAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAD//woAAAAAAAAAAAAEAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAAAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAABAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAARAAoAAAAAAAAAAAACAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAASAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAATAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAAVAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAUAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_mfdv2")
+
+[node name="TextureRect3" parent="StaticBody2D" parent_id_path=PackedInt32Array(979033938) index="2" unique_id=1307205304]
+anchors_preset = -1
+offset_left = -3.0
+offset_right = 7997.0
+texture = SubResource("CompressedTexture2D_7sc4i")
+stretch_mode = 1
+
+[node name="BlockMetal" type="Sprite2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(979033938) index="3" unique_id=870772473]
+position = Vector2(227, 144)
+texture = ExtResource("2_iotsf")
+
+[node name="CollisionShape2D" parent="PLayer" parent_id_path=PackedInt32Array(644718144) index="0" unique_id=1713946965]
+position = Vector2(95, 524)
+
+[node name="AnimatedSprite2D" parent="PLayer" parent_id_path=PackedInt32Array(644718144) index="1" unique_id=813988185]
+position = Vector2(91.99999, 503)
+
+[node name="Camera2D" type="Camera2D" parent="PLayer" parent_id_path=PackedInt32Array(644718144) index="2" unique_id=611147041]
+position = Vector2(800, 450)
+limit_left = 0
+limit_top = 0
+limit_right = 8000
+limit_bottom = 900
+
 [node name="AnimatedSprite2D" parent="Coin" parent_id_path=PackedInt32Array(1769758777) index="0" unique_id=2083720209]
+position = Vector2(300, 520)
 frame_progress = 0.0
 
-[node name="Coin2" type="Area2D" parent="." index="3" unique_id=476792179]
+[node name="CollisionShape2D" parent="Coin" parent_id_path=PackedInt32Array(1769758777) index="1" unique_id=1768178384]
+position = Vector2(300, 522)
+
+[node name="Coin2" type="Area2D" parent="." index="8" unique_id=476792179]
 script = ExtResource("2_mfdv2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin2" index="0" unique_id=1788419359]
-position = Vector2(859.5, 547)
+position = Vector2(720, 450)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2" index="1" unique_id=794914390]
-position = Vector2(858.5, 548)
+position = Vector2(720, 452)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Label" parent="." index="4" unique_id=1877430384]
-offset_left = 871.0
-offset_top = 423.0
-offset_right = 911.0
-offset_bottom = 463.0
+[node name="Label" parent="CanvasLayer" index="0" unique_id=1877430384]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.06, 0.1, 0.18, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
 
-[node name="Obstacle" type="StaticBody2D" parent="." index="6" unique_id=302420829]
+[node name="Obstacle" type="StaticBody2D" parent="." index="11" unique_id=302420829]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" index="0" unique_id=2047667084]
-position = Vector2(625, 563)
+position = Vector2(609, 574)
 shape = SubResource("RectangleShape2D_wvhbo")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle" index="1" unique_id=1217307040]
-position = Vector2(630, 567.875)
-scale = Vector2(8.187504, 11.964291)
-texture = SubResource("AtlasTexture_wvhbo")
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle" index="1" unique_id=1546509080]
+position = Vector2(609, 575)
+texture = ExtResource("12_iotsf")
+
+[node name="Obstacle2" type="StaticBody2D" parent="." index="12" unique_id=1059307554]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2" index="0" unique_id=1854946176]
+position = Vector2(665, 545)
+shape = SubResource("RectangleShape2D_ifow5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle2" index="1" unique_id=323647812]
+position = Vector2(666, 573)
+texture = ExtResource("13_215e1")
+
+[node name="ColumnBottom" type="Sprite2D" parent="." index="13" unique_id=1000348834]
+position = Vector2(666, 518)
+rotation = -3.1415927
+texture = ExtResource("14_7sc4i")
+
+[node name="Coin3" type="Area2D" parent="." index="14" unique_id=668058512]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin3" index="0" unique_id=281315398]
+position = Vector2(1100, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3" index="1" unique_id=1653826049]
+position = Vector2(1100, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin4" type="Area2D" parent="." index="15" unique_id=88138299]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin4" index="0" unique_id=586259607]
+position = Vector2(1450, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4" index="1" unique_id=991797600]
+position = Vector2(1450, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin5" type="Area2D" parent="." index="16" unique_id=1558919669]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin5" index="0" unique_id=579118289]
+position = Vector2(1900, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5" index="1" unique_id=1664466024]
+position = Vector2(1900, 522)
+shape = SubResource("CircleShape2D_abi3o")
 
 [connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin4" to="Coin4" method="_on_body_entered"]
+[node name="Obstacle3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" index="0"]
+position = Vector2(800, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle3" index="1"]
+position = Vector2(800, 572)
+texture = ExtResource("obstacle_asset_1")
+
+[node name="Obstacle4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" index="0"]
+position = Vector2(1600, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle4" index="1"]
+position = Vector2(1600, 572)
+texture = ExtResource("obstacle_asset_2")
+
+[node name="Obstacle5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5" index="0"]
+position = Vector2(2400, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle5" index="1"]
+position = Vector2(2400, 572)
+texture = ExtResource("obstacle_asset_3")
+
+[node name="Obstacle6" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle6" index="0"]
+position = Vector2(3200, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle6" index="1"]
+position = Vector2(3200, 572)
+texture = ExtResource("obstacle_asset_4")
+
+[node name="Obstacle7" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle7" index="0"]
+position = Vector2(4000, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle7" index="1"]
+position = Vector2(4000, 572)
+texture = ExtResource("obstacle_asset_5")
+
+[node name="Obstacle8" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle8" index="0"]
+position = Vector2(4800, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle8" index="1"]
+position = Vector2(4800, 572)
+texture = ExtResource("obstacle_asset_6")
+
+[node name="Obstacle9" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle9" index="0"]
+position = Vector2(5600, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle9" index="1"]
+position = Vector2(5600, 572)
+texture = ExtResource("obstacle_asset_7")
+
+[node name="Obstacle10" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle10" index="0"]
+position = Vector2(6400, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle10" index="1"]
+position = Vector2(6400, 572)
+texture = ExtResource("obstacle_asset_8")
+
+[node name="Obstacle11" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle11" index="0"]
+position = Vector2(7200, 578)
+shape = SubResource("RectangleShape2D_new_obstacle")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle11" index="1"]
+position = Vector2(7200, 572)
+texture = ExtResource("obstacle_asset_9")
+
+[node name="Coin6" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin6" index="0"]
+position = Vector2(2300, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6" index="1"]
+position = Vector2(2300, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin7" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin7" index="0"]
+position = Vector2(2700, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7" index="1"]
+position = Vector2(2700, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin8" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin8" index="0"]
+position = Vector2(3100, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8" index="1"]
+position = Vector2(3100, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin9" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin9" index="0"]
+position = Vector2(3500, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9" index="1"]
+position = Vector2(3500, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin10" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin10" index="0"]
+position = Vector2(3900, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10" index="1"]
+position = Vector2(3900, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin11" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin11" index="0"]
+position = Vector2(4300, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin11" index="1"]
+position = Vector2(4300, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin12" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin12" index="0"]
+position = Vector2(4700, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin12" index="1"]
+position = Vector2(4700, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin13" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin13" index="0"]
+position = Vector2(5100, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13" index="1"]
+position = Vector2(5100, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin14" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin14" index="0"]
+position = Vector2(5500, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin14" index="1"]
+position = Vector2(5500, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin15" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin15" index="0"]
+position = Vector2(5900, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin15" index="1"]
+position = Vector2(5900, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin16" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin16" index="0"]
+position = Vector2(6300, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin16" index="1"]
+position = Vector2(6300, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin17" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin17" index="0"]
+position = Vector2(6700, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin17" index="1"]
+position = Vector2(6700, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin18" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin18" index="0"]
+position = Vector2(7100, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin18" index="1"]
+position = Vector2(7100, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin19" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin19" index="0"]
+position = Vector2(7500, 520)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin19" index="1"]
+position = Vector2(7500, 522)
+shape = SubResource("CircleShape2D_abi3o")
+
+[node name="Coin20" type="Area2D" parent="."]
+script = ExtResource("2_mfdv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin20" index="0"]
+position = Vector2(7850, 470)
+sprite_frames = SubResource("SpriteFrames_ibjym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin20" index="1"]
+position = Vector2(7850, 472)
+shape = SubResource("CircleShape2D_abi3o")
+
+[connection signal="body_entered" from="Coin5" to="Coin5" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin6" to="Coin6" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin7" to="Coin7" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin8" to="Coin8" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin9" to="Coin9" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin10" to="Coin10" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin11" to="Coin11" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin12" to="Coin12" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin13" to="Coin13" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin14" to="Coin14" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin15" to="Coin15" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin16" to="Coin16" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin17" to="Coin17" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin18" to="Coin18" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin19" to="Coin19" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin20" to="Coin20" method="_on_body_entered"]
