@@ -24,6 +24,14 @@
 [ext_resource type="Texture2D" path="res://blocks/block_metal.png" id="obstacle_asset_7"]
 [ext_resource type="Texture2D" path="res://blocks/doorway_closed.png" id="obstacle_asset_8"]
 [ext_resource type="Texture2D" path="res://blocks/cannon_large.png" id="obstacle_asset_9"]
+[ext_resource type="Script" path="res://enemy.gd" id="enemy_script"]
+[ext_resource type="Script" path="res://goal.gd" id="goal_script"]
+[ext_resource type="Texture2D" path="res://blocks/character_round_red.png" id="enemy_red"]
+[ext_resource type="Texture2D" path="res://blocks/character_round_purple.png" id="enemy_purple"]
+[ext_resource type="Texture2D" path="res://blocks/character_round_green.png" id="enemy_green"]
+[ext_resource type="Texture2D" path="res://blocks/character_round_yellow.png" id="enemy_yellow"]
+[ext_resource type="Texture2D" path="res://blocks/doorway_closed.png" id="goal_closed"]
+[ext_resource type="Texture2D" path="res://blocks/doorway_open.png" id="goal_open"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sc4i"]
 size = Vector2(8000, 60.25)
@@ -113,6 +121,12 @@ size = Vector2(51, 114.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_new_obstacle"]
 size = Vector2(46, 48)
+
+[sub_resource type="CircleShape2D" id="EnemyCircleShape"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="GoalShape"]
+size = Vector2(70, 100)
 
 [node name="World" unique_id=1113526972 instance=ExtResource("1_80nbo")]
 
@@ -515,14 +529,74 @@ shape = SubResource("CircleShape2D_abi3o")
 script = ExtResource("2_mfdv2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin20" index="0"]
-position = Vector2(7850, 470)
+position = Vector2(7650, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin20" index="1"]
-position = Vector2(7850, 472)
+position = Vector2(7650, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
+[node name="Enemy1" type="Area2D" parent="."]
+position = Vector2(1300, 570)
+script = ExtResource("enemy_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy1" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("enemy_red")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1" index="1"]
+shape = SubResource("EnemyCircleShape")
+
+[node name="Enemy2" type="Area2D" parent="."]
+position = Vector2(2900, 570)
+script = ExtResource("enemy_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("enemy_purple")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2" index="1"]
+shape = SubResource("EnemyCircleShape")
+
+[node name="Enemy3" type="Area2D" parent="."]
+position = Vector2(4500, 570)
+script = ExtResource("enemy_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("enemy_green")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3" index="1"]
+shape = SubResource("EnemyCircleShape")
+
+[node name="Enemy4" type="Area2D" parent="."]
+position = Vector2(6100, 570)
+script = ExtResource("enemy_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy4" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("enemy_yellow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4" index="1"]
+shape = SubResource("EnemyCircleShape")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(7900, 562)
+script = ExtResource("goal_script")
+open_texture = ExtResource("goal_open")
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal" index="0"]
+texture = ExtResource("goal_closed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" index="1"]
+shape = SubResource("GoalShape")
+
 [connection signal="body_entered" from="Coin5" to="Coin5" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy1" to="Enemy1" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy2" to="Enemy2" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy3" to="Enemy3" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy4" to="Enemy4" method="_on_body_entered"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin6" to="Coin6" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin7" to="Coin7" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin8" to="Coin8" method="_on_body_entered"]
