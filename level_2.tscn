@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=4]
+
+[ext_resource type="PackedScene" path="res://game.tscn" id="1_game"]
+[ext_resource type="Texture2D" path="res://blocks/cactus.png" id="level2_cactus"]
+[ext_resource type="Texture2D" path="res://blocks/cannon_small.png" id="level2_cannon"]
+[ext_resource type="Texture2D" path="res://blocks/pottery_tall.png" id="level2_pottery"]
+[ext_resource type="Texture2D" path="res://blocks/obelisk.png" id="level2_obelisk"]
+[ext_resource type="Script" path="res://enemy.gd" id="level2_enemy_script"]
+[ext_resource type="Texture2D" path="res://blocks/character_round_yellow.png" id="enemy_fast_sprite"]
+[ext_resource type="Texture2D" path="res://blocks/character_rectangle_purple.png" id="enemy_jumper_sprite"]
+[ext_resource type="PackedScene" path="res://boss.tscn" id="level2_boss"]
+[sub_resource type="RectangleShape2D" id="Level2ObstacleShape"]
+size = Vector2(46, 48)
+[sub_resource type="CircleShape2D" id="Level2EnemyShape"]
+radius = 25.0
+
+[node name="World" instance=ExtResource("1_game")]
+level_number = 2
+next_level_path = ""
+
+[node name="BackgroundEmpty" parent="." index="0"]
+modulate = Color(0.72, 0.84, 0.96, 1)
+
+[node name="BackgroundEmpty2" parent="." index="1"]
+modulate = Color(0.72, 0.84, 0.96, 1)
+
+[node name="BackgroundEmpty3" parent="." index="2"]
+modulate = Color(0.72, 0.84, 0.96, 1)
+
+[node name="BackgroundEmpty4" parent="." index="3"]
+modulate = Color(0.72, 0.84, 0.96, 1)
+
+[node name="BackgroundEmpty5" parent="." index="4"]
+modulate = Color(0.72, 0.84, 0.96, 1)
+
+[node name="Level2Obstacle1" type="StaticBody2D" parent="."]
+position = Vector2(2000, 572)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2Obstacle1" index="0"]
+texture = ExtResource("level2_cactus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Obstacle1" index="1"]
+position = Vector2(0, 6)
+shape = SubResource("Level2ObstacleShape")
+
+[node name="Level2Obstacle2" type="StaticBody2D" parent="."]
+position = Vector2(3600, 572)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2Obstacle2" index="0"]
+texture = ExtResource("level2_cannon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Obstacle2" index="1"]
+position = Vector2(0, 6)
+shape = SubResource("Level2ObstacleShape")
+
+[node name="Level2Obstacle3" type="StaticBody2D" parent="."]
+position = Vector2(5200, 572)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2Obstacle3" index="0"]
+texture = ExtResource("level2_pottery")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Obstacle3" index="1"]
+position = Vector2(0, 6)
+shape = SubResource("Level2ObstacleShape")
+
+[node name="Level2Obstacle4" type="StaticBody2D" parent="."]
+position = Vector2(6800, 572)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2Obstacle4" index="0"]
+texture = ExtResource("level2_obelisk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Obstacle4" index="1"]
+position = Vector2(0, 6)
+shape = SubResource("Level2ObstacleShape")
+
+[node name="FastEnemy" type="Area2D" parent="."]
+position = Vector2(3500, 570)
+script = ExtResource("level2_enemy_script")
+speed = 210.0
+patrol_distance = 125.0
+movement_type = "Fast"
+
+[node name="Sprite2D" type="Sprite2D" parent="FastEnemy" index="0"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("enemy_fast_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FastEnemy" index="1"]
+shape = SubResource("Level2EnemyShape")
+
+[node name="JumperEnemy" type="Area2D" parent="."]
+position = Vector2(5100, 570)
+script = ExtResource("level2_enemy_script")
+speed = 80.0
+patrol_distance = 95.0
+movement_type = "Jumper"
+jump_height = 95.0
+jump_frequency = 2.4
+
+[node name="Sprite2D" type="Sprite2D" parent="JumperEnemy" index="0"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("enemy_jumper_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumperEnemy" index="1"]
+shape = SubResource("Level2EnemyShape")
+
+[node name="Boss" parent="." instance=ExtResource("level2_boss")]
+position = Vector2(7550, 560)
+
+[connection signal="body_entered" from="FastEnemy" to="FastEnemy" method="_on_body_entered"]
+[connection signal="body_entered" from="JumperEnemy" to="JumperEnemy" method="_on_body_entered"]

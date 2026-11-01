@@ -15,23 +15,28 @@
 [ext_resource type="Texture2D" uid="uid://cksxwhcoy6vss" path="res://blocks/archway_small.png" id="12_iotsf"]
 [ext_resource type="Texture2D" uid="uid://dpe4y2hsnnoor" path="res://Coins/column_middle.png" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://dem6fwgrur6w5" path="res://Coins/column_bottom.png" id="14_7sc4i"]
-[ext_resource type="Texture2D" path="res://blocks/cactus.png" id="obstacle_asset_1"]
-[ext_resource type="Texture2D" path="res://blocks/pottery_tall.png" id="obstacle_asset_2"]
-[ext_resource type="Texture2D" path="res://blocks/cannon_small.png" id="obstacle_asset_3"]
-[ext_resource type="Texture2D" path="res://blocks/obelisk.png" id="obstacle_asset_4"]
-[ext_resource type="Texture2D" path="res://blocks/fence.png" id="obstacle_asset_5"]
-[ext_resource type="Texture2D" path="res://blocks/block_glass.png" id="obstacle_asset_6"]
-[ext_resource type="Texture2D" path="res://blocks/block_metal.png" id="obstacle_asset_7"]
-[ext_resource type="Texture2D" path="res://blocks/doorway_closed.png" id="obstacle_asset_8"]
-[ext_resource type="Texture2D" path="res://blocks/cannon_large.png" id="obstacle_asset_9"]
-[ext_resource type="Script" path="res://enemy.gd" id="enemy_script"]
-[ext_resource type="Script" path="res://goal.gd" id="goal_script"]
-[ext_resource type="Texture2D" path="res://blocks/character_round_red.png" id="enemy_red"]
-[ext_resource type="Texture2D" path="res://blocks/character_round_purple.png" id="enemy_purple"]
-[ext_resource type="Texture2D" path="res://blocks/character_round_green.png" id="enemy_green"]
-[ext_resource type="Texture2D" path="res://blocks/character_round_yellow.png" id="enemy_yellow"]
-[ext_resource type="Texture2D" path="res://blocks/doorway_closed.png" id="goal_closed"]
-[ext_resource type="Texture2D" path="res://blocks/doorway_open.png" id="goal_open"]
+[ext_resource type="Script" uid="uid://kwcjrphorye8" path="res://checkpoint.gd" id="checkpoint_script"]
+[ext_resource type="Texture2D" uid="uid://wilqlbbdgwq3" path="res://blocks/pole_lantern.png" id="checkpoint_sprite"]
+[ext_resource type="Texture2D" uid="uid://46066e3n3ot8" path="res://blocks/character_round_green.png" id="enemy_green"]
+[ext_resource type="Texture2D" uid="uid://dmn66ejgv1n18" path="res://blocks/character_round_purple.png" id="enemy_purple"]
+[ext_resource type="Texture2D" uid="uid://errppfike7fo" path="res://blocks/character_round_red.png" id="enemy_red"]
+[ext_resource type="Script" uid="uid://cf0ljqtis32ts" path="res://enemy.gd" id="enemy_script"]
+[ext_resource type="Texture2D" uid="uid://dcria3oxllss" path="res://blocks/character_round_yellow.png" id="enemy_yellow"]
+[ext_resource type="Texture2D" uid="uid://cjcd107npqyml" path="res://blocks/doorway_closed.png" id="goal_closed"]
+[ext_resource type="Texture2D" uid="uid://b3lcqh2t73k2j" path="res://blocks/doorway_open.png" id="goal_open"]
+[ext_resource type="Script" uid="uid://did8i3fc0a2ju" path="res://goal.gd" id="goal_script"]
+[ext_resource type="Script" uid="uid://begfbd15bi6nq" path="res://gold_coin.gd" id="gold_script"]
+[ext_resource type="Texture2D" uid="uid://cdtfn35dexr8q" path="res://blocks/cactus.png" id="obstacle_asset_1"]
+[ext_resource type="Texture2D" uid="uid://8e0sx0tn2kpg" path="res://blocks/pottery_tall.png" id="obstacle_asset_2"]
+[ext_resource type="Texture2D" uid="uid://dum12kvx4w8ml" path="res://blocks/cannon_small.png" id="obstacle_asset_3"]
+[ext_resource type="Texture2D" uid="uid://clfvp3fj7ioc8" path="res://blocks/obelisk.png" id="obstacle_asset_4"]
+[ext_resource type="Texture2D" uid="uid://dypeltheceq6w" path="res://blocks/fence.png" id="obstacle_asset_5"]
+[ext_resource type="Texture2D" uid="uid://ddy4snqgsc0sf" path="res://blocks/block_glass.png" id="obstacle_asset_6"]
+[ext_resource type="Texture2D" uid="uid://ddm4t24t0ggjb" path="res://blocks/block_metal.png" id="obstacle_asset_7"]
+[ext_resource type="Texture2D" uid="uid://dxnnnlxkfmpk" path="res://blocks/cannon_large.png" id="obstacle_asset_9"]
+[ext_resource type="Script" uid="uid://cgtcfy4lickk3" path="res://moving_platform.gd" id="platform_script"]
+[ext_resource type="Texture2D" uid="uid://b7gjvf7ndswhs" path="res://blocks/plank_metal.png" id="platform_sprite"]
+[ext_resource type="Script" uid="uid://bjnr8jj0s72i4" path="res://secret_path.gd" id="secret_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sc4i"]
 size = Vector2(8000, 60.25)
@@ -128,7 +133,23 @@ radius = 25.0
 [sub_resource type="RectangleShape2D" id="GoalShape"]
 size = Vector2(70, 100)
 
+[sub_resource type="CircleShape2D" id="CheckpointShape"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="MovingPlatformShape"]
+size = Vector2(144, 18)
+
+[sub_resource type="CircleShape2D" id="GoldCoinShape"]
+radius = 23.0
+
+[sub_resource type="RectangleShape2D" id="SecretPlatformShape"]
+size = Vector2(180, 18)
+
+[sub_resource type="RectangleShape2D" id="SecretTriggerShape"]
+size = Vector2(200, 110)
+
 [node name="World" unique_id=1113526972 instance=ExtResource("1_80nbo")]
+next_level_path = "res://level_2.tscn"
 
 [node name="BackgroundEmpty" type="Sprite2D" parent="." index="0" unique_id=525313944]
 z_index = -10
@@ -211,7 +232,7 @@ sprite_frames = SubResource("SpriteFrames_ibjym")
 position = Vector2(720, 452)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Label" parent="CanvasLayer" index="0" unique_id=1877430384]
+[node name="Label" parent="CanvasLayer" parent_id_path=PackedInt32Array(1282493107) index="0" unique_id=1877430384]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 280.0
@@ -219,6 +240,38 @@ offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.06, 0.1, 0.18, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
+
+[node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(1282493107) index="7"]
+layout_mode = 3
+
+[node name="Shade" parent="CanvasLayer/PauseMenu" index="0"]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="Title" parent="CanvasLayer/PauseMenu" index="1"]
+layout_mode = 0
+
+[node name="ResumeButton" parent="CanvasLayer/PauseMenu" index="2"]
+layout_mode = 0
+
+[node name="RestartButton" parent="CanvasLayer/PauseMenu" index="3"]
+layout_mode = 0
+
+[node name="QuitButton" parent="CanvasLayer/PauseMenu" index="4"]
+layout_mode = 0
+
+[node name="CompletionPanel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1282493107) index="8"]
+layout_mode = 3
+
+[node name="Shade" parent="CanvasLayer/CompletionPanel" index="0"]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="CompletionTitle" parent="CanvasLayer/CompletionPanel" index="1"]
+layout_mode = 0
+
+[node name="NextLevelButton" parent="CanvasLayer/CompletionPanel" index="2"]
+layout_mode = 0
 
 [node name="Obstacle" type="StaticBody2D" parent="." index="11" unique_id=302420829]
 
@@ -278,325 +331,434 @@ sprite_frames = SubResource("SpriteFrames_ibjym")
 position = Vector2(1900, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
-[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
-[connection signal="body_entered" from="Coin4" to="Coin4" method="_on_body_entered"]
-[node name="Obstacle3" type="StaticBody2D" parent="."]
+[node name="Obstacle3" type="StaticBody2D" parent="." index="20" unique_id=1020483808]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" index="0" unique_id=148462227]
 position = Vector2(800, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle3" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle3" index="1" unique_id=1716080544]
 position = Vector2(800, 572)
 texture = ExtResource("obstacle_asset_1")
 
-[node name="Obstacle4" type="StaticBody2D" parent="."]
+[node name="Obstacle4" type="StaticBody2D" parent="." index="21" unique_id=1261603392]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" index="0" unique_id=2143151427]
 position = Vector2(1600, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle4" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle4" index="1" unique_id=1093785068]
 position = Vector2(1600, 572)
 texture = ExtResource("obstacle_asset_2")
 
-[node name="Obstacle5" type="StaticBody2D" parent="."]
+[node name="Obstacle5" type="StaticBody2D" parent="." index="22" unique_id=1313286228]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5" index="0" unique_id=731478058]
 position = Vector2(2400, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle5" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle5" index="1" unique_id=369182622]
 position = Vector2(2400, 572)
 texture = ExtResource("obstacle_asset_3")
 
-[node name="Obstacle6" type="StaticBody2D" parent="."]
+[node name="Obstacle6" type="StaticBody2D" parent="." index="23" unique_id=826063063]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle6" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle6" index="0" unique_id=964305660]
 position = Vector2(3200, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle6" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle6" index="1" unique_id=5017875]
 position = Vector2(3200, 572)
 texture = ExtResource("obstacle_asset_4")
 
-[node name="Obstacle7" type="StaticBody2D" parent="."]
+[node name="Obstacle7" type="StaticBody2D" parent="." index="24" unique_id=481754495]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle7" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle7" index="0" unique_id=985146518]
 position = Vector2(4000, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle7" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle7" index="1" unique_id=1361242399]
 position = Vector2(4000, 572)
 texture = ExtResource("obstacle_asset_5")
 
-[node name="Obstacle8" type="StaticBody2D" parent="."]
+[node name="Obstacle8" type="StaticBody2D" parent="." index="25" unique_id=369281174]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle8" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle8" index="0" unique_id=396357460]
 position = Vector2(4800, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle8" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle8" index="1" unique_id=1277625071]
 position = Vector2(4800, 572)
 texture = ExtResource("obstacle_asset_6")
 
-[node name="Obstacle9" type="StaticBody2D" parent="."]
+[node name="Obstacle9" type="StaticBody2D" parent="." index="26" unique_id=1982365127]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle9" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle9" index="0" unique_id=1177669202]
 position = Vector2(5600, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle9" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle9" index="1" unique_id=659482521]
 position = Vector2(5600, 572)
 texture = ExtResource("obstacle_asset_7")
 
-[node name="Obstacle10" type="StaticBody2D" parent="."]
+[node name="Obstacle10" type="StaticBody2D" parent="." index="27" unique_id=691755074]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle10" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle10" index="0" unique_id=1490252546]
 position = Vector2(6400, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle10" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle10" index="1" unique_id=252818265]
 position = Vector2(6400, 572)
-texture = ExtResource("obstacle_asset_8")
+texture = ExtResource("goal_closed")
 
-[node name="Obstacle11" type="StaticBody2D" parent="."]
+[node name="Obstacle11" type="StaticBody2D" parent="." index="28" unique_id=972299300]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle11" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle11" index="0" unique_id=1644555657]
 position = Vector2(7200, 578)
 shape = SubResource("RectangleShape2D_new_obstacle")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle11" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle11" index="1" unique_id=981924007]
 position = Vector2(7200, 572)
 texture = ExtResource("obstacle_asset_9")
 
-[node name="Coin6" type="Area2D" parent="."]
+[node name="Coin6" type="Area2D" parent="." index="29" unique_id=559677368]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin6" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin6" index="0" unique_id=873578142]
 position = Vector2(2300, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6" index="1" unique_id=947205126]
 position = Vector2(2300, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin7" type="Area2D" parent="."]
+[node name="Coin7" type="Area2D" parent="." index="30" unique_id=1678192244]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin7" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin7" index="0" unique_id=111717143]
 position = Vector2(2700, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7" index="1" unique_id=114516656]
 position = Vector2(2700, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin8" type="Area2D" parent="."]
+[node name="Coin8" type="Area2D" parent="." index="31" unique_id=2073111976]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin8" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin8" index="0" unique_id=719871015]
 position = Vector2(3100, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8" index="1" unique_id=508119989]
 position = Vector2(3100, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin9" type="Area2D" parent="."]
+[node name="Coin9" type="Area2D" parent="." index="32" unique_id=21805803]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin9" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin9" index="0" unique_id=1625204449]
 position = Vector2(3500, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9" index="1" unique_id=913628203]
 position = Vector2(3500, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin10" type="Area2D" parent="."]
+[node name="Coin10" type="Area2D" parent="." index="33" unique_id=901437906]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin10" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin10" index="0" unique_id=1616764460]
 position = Vector2(3900, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10" index="1" unique_id=2070022089]
 position = Vector2(3900, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin11" type="Area2D" parent="."]
+[node name="Coin11" type="Area2D" parent="." index="34" unique_id=659207065]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin11" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin11" index="0" unique_id=1890288881]
 position = Vector2(4300, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin11" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin11" index="1" unique_id=207055906]
 position = Vector2(4300, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin12" type="Area2D" parent="."]
+[node name="Coin12" type="Area2D" parent="." index="35" unique_id=1844360629]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin12" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin12" index="0" unique_id=1282702385]
 position = Vector2(4700, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin12" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin12" index="1" unique_id=1697338305]
 position = Vector2(4700, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin13" type="Area2D" parent="."]
+[node name="Coin13" type="Area2D" parent="." index="36" unique_id=1548599228]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin13" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin13" index="0" unique_id=892965315]
 position = Vector2(5100, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13" index="1" unique_id=610460358]
 position = Vector2(5100, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin14" type="Area2D" parent="."]
+[node name="Coin14" type="Area2D" parent="." index="37" unique_id=1900579294]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin14" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin14" index="0" unique_id=8504635]
 position = Vector2(5500, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin14" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin14" index="1" unique_id=793695463]
 position = Vector2(5500, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin15" type="Area2D" parent="."]
+[node name="Coin15" type="Area2D" parent="." index="38" unique_id=1070728355]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin15" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin15" index="0" unique_id=832800254]
 position = Vector2(5900, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin15" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin15" index="1" unique_id=358544376]
 position = Vector2(5900, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin16" type="Area2D" parent="."]
+[node name="Coin16" type="Area2D" parent="." index="39" unique_id=1497898689]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin16" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin16" index="0" unique_id=1725045480]
 position = Vector2(6300, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin16" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin16" index="1" unique_id=628495892]
 position = Vector2(6300, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin17" type="Area2D" parent="."]
+[node name="Coin17" type="Area2D" parent="." index="40" unique_id=1665168387]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin17" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin17" index="0" unique_id=161740997]
 position = Vector2(6700, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin17" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin17" index="1" unique_id=1051408040]
 position = Vector2(6700, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin18" type="Area2D" parent="."]
+[node name="Coin18" type="Area2D" parent="." index="41" unique_id=375155219]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin18" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin18" index="0" unique_id=1435608380]
 position = Vector2(7100, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin18" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin18" index="1" unique_id=859433474]
 position = Vector2(7100, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin19" type="Area2D" parent="."]
+[node name="Coin19" type="Area2D" parent="." index="42" unique_id=1009115060]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin19" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin19" index="0" unique_id=519972555]
 position = Vector2(7500, 520)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin19" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin19" index="1" unique_id=250016735]
 position = Vector2(7500, 522)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Coin20" type="Area2D" parent="."]
+[node name="Coin20" type="Area2D" parent="." index="43" unique_id=2072087297]
 script = ExtResource("2_mfdv2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin20" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin20" index="0" unique_id=658860766]
 position = Vector2(7650, 470)
 sprite_frames = SubResource("SpriteFrames_ibjym")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin20" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin20" index="1" unique_id=1813242099]
 position = Vector2(7650, 472)
 shape = SubResource("CircleShape2D_abi3o")
 
-[node name="Enemy1" type="Area2D" parent="."]
+[node name="Enemy1" type="Area2D" parent="." index="44" unique_id=2068376902]
 position = Vector2(1300, 570)
 script = ExtResource("enemy_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy1" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy1" index="0" unique_id=888688372]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("enemy_red")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1" index="1" unique_id=688524511]
 shape = SubResource("EnemyCircleShape")
 
-[node name="Enemy2" type="Area2D" parent="."]
+[node name="Enemy2" type="Area2D" parent="." index="45" unique_id=990500224]
 position = Vector2(2900, 570)
 script = ExtResource("enemy_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy2" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2" index="0" unique_id=1938291081]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("enemy_purple")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2" index="1" unique_id=1278918622]
 shape = SubResource("EnemyCircleShape")
 
-[node name="Enemy3" type="Area2D" parent="."]
+[node name="Enemy3" type="Area2D" parent="." index="46" unique_id=1385818654]
 position = Vector2(4500, 570)
 script = ExtResource("enemy_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy3" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3" index="0" unique_id=1775901406]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("enemy_green")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3" index="1" unique_id=635958599]
 shape = SubResource("EnemyCircleShape")
 
-[node name="Enemy4" type="Area2D" parent="."]
+[node name="Enemy4" type="Area2D" parent="." index="47" unique_id=475823906]
 position = Vector2(6100, 570)
 script = ExtResource("enemy_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy4" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy4" index="0" unique_id=2131162740]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("enemy_yellow")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4" index="1" unique_id=1086878117]
 shape = SubResource("EnemyCircleShape")
 
-[node name="Goal" type="Area2D" parent="."]
+[node name="Goal" type="Area2D" parent="." index="48" unique_id=1308705760]
 position = Vector2(7900, 562)
 script = ExtResource("goal_script")
 open_texture = ExtResource("goal_open")
 
-[node name="Sprite2D" type="Sprite2D" parent="Goal" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Goal" index="0" unique_id=1761843923]
 texture = ExtResource("goal_closed")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" index="1" unique_id=442878592]
 shape = SubResource("GoalShape")
 
+[node name="Checkpoint1" type="Area2D" parent="." index="49" unique_id=1039020409]
+position = Vector2(2100, 565)
+script = ExtResource("checkpoint_script")
+checkpoint_text = "Checkpoint 1 saved!"
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint1" index="0" unique_id=2026274386]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("checkpoint_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint1" index="1" unique_id=956902323]
+shape = SubResource("CheckpointShape")
+
+[node name="Checkpoint2" type="Area2D" parent="." index="50" unique_id=1975981190]
+position = Vector2(3700, 565)
+script = ExtResource("checkpoint_script")
+checkpoint_text = "Checkpoint 2 saved!"
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint2" index="0" unique_id=1263551900]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("checkpoint_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2" index="1" unique_id=1702246054]
+shape = SubResource("CheckpointShape")
+
+[node name="Checkpoint3" type="Area2D" parent="." index="51" unique_id=1437592748]
+position = Vector2(5300, 565)
+script = ExtResource("checkpoint_script")
+checkpoint_text = "Checkpoint 3 saved!"
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint3" index="0" unique_id=1681624474]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("checkpoint_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint3" index="1" unique_id=1370739085]
+shape = SubResource("CheckpointShape")
+
+[node name="Checkpoint4" type="Area2D" parent="." index="52" unique_id=2014476037]
+position = Vector2(6900, 565)
+script = ExtResource("checkpoint_script")
+checkpoint_text = "Checkpoint 4 saved!"
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint4" index="0" unique_id=2086970837]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("checkpoint_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint4" index="1" unique_id=1015790670]
+shape = SubResource("CheckpointShape")
+
+[node name="MovingPlatform2600" type="AnimatableBody2D" parent="." index="53" unique_id=1050421764]
+position = Vector2(2600, 520)
+script = ExtResource("platform_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform2600" index="0" unique_id=148131966]
+scale = Vector2(2.25, 0.32)
+texture = ExtResource("platform_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform2600" index="1" unique_id=54614215]
+shape = SubResource("MovingPlatformShape")
+
+[node name="MovingPlatform5800" type="AnimatableBody2D" parent="." index="54" unique_id=457550327]
+position = Vector2(5800, 520)
+script = ExtResource("platform_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform5800" index="0" unique_id=1869038283]
+scale = Vector2(2.25, 0.32)
+texture = ExtResource("platform_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform5800" index="1" unique_id=361435258]
+shape = SubResource("MovingPlatformShape")
+
+[node name="GoldenCoin" type="Area2D" parent="." index="55" unique_id=1796004077]
+position = Vector2(5850, 425)
+script = ExtResource("gold_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="GoldenCoin" index="0" unique_id=305588299]
+modulate = Color(1, 0.78, 0.12, 1)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_iotsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldenCoin" index="1" unique_id=98144760]
+shape = SubResource("GoldCoinShape")
+
+[node name="SecretPlatform" type="StaticBody2D" parent="." index="56" unique_id=1457921034]
+position = Vector2(2800, 460)
+
+[node name="Sprite2D" type="Sprite2D" parent="SecretPlatform" index="0" unique_id=388572751]
+visible = false
+scale = Vector2(2.8, 0.32)
+texture = ExtResource("platform_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretPlatform" index="1" unique_id=1294014827]
+shape = SubResource("SecretPlatformShape")
+
+[node name="SecretTrigger" type="Area2D" parent="." index="57" unique_id=180571612]
+position = Vector2(2800, 390)
+script = ExtResource("secret_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretTrigger" index="0" unique_id=91231030]
+shape = SubResource("SecretTriggerShape")
+
+[node name="SecretCoin" type="Area2D" parent="." index="58" unique_id=923775593]
+visible = false
+position = Vector2(2800, 410)
+monitoring = false
+script = ExtResource("gold_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="SecretCoin" index="0" unique_id=857565535]
+modulate = Color(1, 0.78, 0.12, 1)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_iotsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretCoin" index="1" unique_id=336506366]
+shape = SubResource("GoldCoinShape")
+
+[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin4" to="Coin4" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin5" to="Coin5" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemy1" to="Enemy1" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemy2" to="Enemy2" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemy3" to="Enemy3" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemy4" to="Enemy4" method="_on_body_entered"]
-[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin6" to="Coin6" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin7" to="Coin7" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin8" to="Coin8" method="_on_body_entered"]
@@ -612,3 +774,15 @@ shape = SubResource("GoalShape")
 [connection signal="body_entered" from="Coin18" to="Coin18" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin19" to="Coin19" method="_on_body_entered"]
 [connection signal="body_entered" from="Coin20" to="Coin20" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy1" to="Enemy1" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy2" to="Enemy2" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy3" to="Enemy3" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy4" to="Enemy4" method="_on_body_entered"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint1" to="Checkpoint1" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint2" to="Checkpoint2" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint3" to="Checkpoint3" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint4" to="Checkpoint4" method="_on_body_entered"]
+[connection signal="body_entered" from="GoldenCoin" to="GoldenCoin" method="_on_body_entered"]
+[connection signal="body_entered" from="SecretTrigger" to="SecretTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="SecretCoin" to="SecretCoin" method="_on_body_entered"]

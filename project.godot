@@ -28,6 +28,12 @@ window/stretch/aspect="expand"
 
 3d/physics_engine="Jolt Physics"
 
+[input]
+
+dash={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":4194325)]
+}
 [rendering]
 
 rendering_device/driver.windows="d3d12"

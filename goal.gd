@@ -9,5 +9,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if game.score < game.TOTAL_COINS:
 		game.show_need_coins()
 		return
+	if game.level_number == 2 and not game.boss_defeated:
+		game.show_boss_remaining()
+		return
 	$Sprite2D.texture = open_texture
 	game.complete_level()
